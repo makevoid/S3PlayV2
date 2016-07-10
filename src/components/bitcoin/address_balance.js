@@ -17,7 +17,6 @@ class AddressBalance extends Comp {
         <div>
           <strong>Balance:</strong>
         </div>
-        <div className="s10"></div>
         <div>{balance / 100000} mBTC</div>
       </div>
     )

@@ -4,4 +4,4 @@ npm-debug.log
 .sass-cache/
 S3Play.keystore
 dist/bundle.js
-tmp/song1.mp3
+tmp/song*.mp3

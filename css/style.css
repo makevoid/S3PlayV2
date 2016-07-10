@@ -167,8 +167,7 @@ nav li:hover a {
 /* Receive */
 
 .qrCode img {
-  width: 43%;
-  margin: 0 auto 40px;
+  width: 44px;
 }
 
 .receive input[type=text] {
@@ -259,4 +258,39 @@ section.track-list > h1 {
 }
 .play_pause[data-playing="1"] {
   left: -2px;
+}
+
+/* address balance bottom right corner   */
+
+.addressBalance {
+  position: absolute;
+  right:    7px;
+  bottom:   -15px;
+}
+
+.addressBalance img,
+.addressBalance input,
+.addressBalance div {
+  display: inline-block;
+}
+
+.addressBalance input {
+  background: #444;
+  color: #999;
+  margin: 0 0 0 11px;
+  font-size: 0.9em;
+  min-height: 10px;
+}
+
+.addressBalance .qrCode {
+  position: relative;
+  top: 18px;
+}
+
+.addressBalance .balance {
+  margin: 0 0 0 30px;
+}
+
+.addressBalance .balance strong {
+  margin: 0 5px 0 0;
 }

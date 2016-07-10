@@ -8,24 +8,24 @@ class QRAddress extends Comp {
   constructor(props) {
     super(props)
     this.render = this.render.bind(this)
+    this.myHandler = this.myHandler.bind(this)
   }
   componentDidMount() {
-    this.qrElem = ReactDOM.findDOMNode(this.refs.qr)
+    this.qrElem = ReactDOM.findDOMNode(this.refs.qrCont)
+    // console.log(this.qrElem)
     // $('#fullscreen-button').on('click', function() {  } });
     this.qrElem.addEventListener('click', this.myHandler);
   }
-  myhandler() {
-    alert("x")
-    // () => {
-    //   var doc = document.documentElement;
-    //   if (doc.requestFullscreen) { doc.requestFullscreen(); }
-    // }
+  myHandler() {
+    console.log(">>> TODO: enlarge QR ", this.qrElem)
   }
   render() {
     let address = this.getStore().address
     return (
       <div>
-        <QR ref="qr" address={address} onClick={this.qrElem && this.qrElem.requestFullscreen}/>
+        <div ref="qrCont">
+          <QR address={address} onClick={this.qrElem && this.qrElem.requestFullscreen}/>
+        </div>
         <Address address={address}/>
       </div>
     )

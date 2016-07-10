@@ -2,6 +2,9 @@ import React    from 'React'
 import ReactDOM from 'ReactDOM'
 import Comp     from '../comp'
 import actions  from '../../actions/index'
+import Underscore from 'Underscore'
+const findWhere = Underscore.findWhere
+const c = console
 
 let replaceNbsp = function() {
   return this.replace(/ /g, "\u00a0")
@@ -13,8 +16,17 @@ class PlayerComp extends Comp {
   componentDidMount() {
     this.player = ReactDOM.findDOMNode(this.refs.player)
 
-    this.player.addEventListener('ended',      this._audioEnded)
-    this.player.addEventListener('timeupdate', this._audioUpdate)
+    // Events
+    //
+    //
+    // ended - used to skip to the next track when the current track has finished playing:
+    //
+    this.player.addEventListener('ended', this._audioEnded)
+    //
+    //
+    // TODO: enable for updating the slider > need to throttle it via Uncerscore.trhottle
+    //
+    // this.player.addEventListener('timeupdate', this._audioUpdate)
 
     this._playPause = this._playPause.bind(this)
   }
@@ -33,7 +45,11 @@ class PlayerComp extends Comp {
 
     let store = this.getStore()
     let playing = store.playing
+    let currentTrack = store.currentTrack
+
     this.playing = playing
+    let track = findWhere(store.tracks, { hash: currentTrack })
+    let file = track.file
 
     let playingIndicator = "  ".replaceNbsp()
     if (playing) playingIndicator = "♪"
@@ -46,7 +62,7 @@ class PlayerComp extends Comp {
         <span className="left sl20"> {playingIndicator} </span>
 
         {/* TODO move into download <TrackDownload /> button */}
-        <a className="download btn sr10" href="javascript:void(0)"> ⇓ </a>
+        <a className="download btn sr10" href={file}> ⇓ </a>
 
         <div className="sl10" />
         <a className="prev sr30" onClick={this._prev}> ≪ </a>
@@ -57,9 +73,9 @@ class PlayerComp extends Comp {
 
         {/* audio tag - where all the magic happens */}
         <div>
-          <audio ref="player" className="s3play_audio" mozaudiochannel="content" src="/tmp/song1.mp3" autoPlay={playing ? "autoPlay" : ""}  controls={debugControls ? "controls" : ""}></audio>
+          <audio ref="player" className="s3play_audio" mozaudiochannel="content" src={file} autoPlay={playing ? "autoPlay" : ""}  controls={debugControls ? "controls" : ""}></audio>
         </div>
-        {/* TODO: <div className="song_name"></div> */}
+        {/* TODO: <div className="trackName"></div> */}
 
       </section>
     )
@@ -74,16 +90,21 @@ class PlayerComp extends Comp {
   }
 
   _playerPlay() {
-    this.player.play()
+    if (!this._playerIsPlaying())
+      this.player.play()
   }
 
   _playerPause() {
     this.player.pause()
   }
 
+  _playerIsPlaying() {
+    return !this.player.paused
+  }
+
   _playerPlayPause() {
     if (this.playing) {
-      this._playerPlay()
+      if (this._playerIsPlaying()) this._playerPlay()
     } else {
       this._playerPause()
     }

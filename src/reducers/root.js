@@ -93,7 +93,6 @@ const rootReducer = (state = defaultState, action) => {
       let next = trackNext(state.tracks, state.currentTrack)
       defer(() => {
         if (next) actions.trackSelect(next.hash)
-        actions.playerPlay()
       })
       return state
 
@@ -101,7 +100,6 @@ const rootReducer = (state = defaultState, action) => {
       let prev = trackPrev(state.tracks, state.currentTrack)
       defer(() => {
         if (prev) actions.trackSelect(prev.hash)
-        actions.playerPlay()
       })
       return state
 

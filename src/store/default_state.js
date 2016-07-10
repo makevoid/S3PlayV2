@@ -75,16 +75,19 @@ let track
 track = {
   name: "Antani 1 - Blue Swings",
   hash: "123456789",
+  file: "/tmp/song1.mp3",
 }
 tracks.push(track)
 track = {
   name: "Antani 2 - Yeep yeep",
   hash: "1234567890",
+  file: "/tmp/song2.mp3",
 }
 tracks.push(track)
 track = {
   name: "Antani 3 - Gig the Jeep",
   hash: "12345678901",
+  file: "/tmp/song3.mp3",
 }
 tracks.push(track)
 

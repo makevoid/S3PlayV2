@@ -4,6 +4,8 @@ import PlayerComp from './player_comp'
 // import Tracks from '../tracks/tracks'
 import TrackList from '../tracks/track_list'
 import PureProvider from '../example/pure_provider'
+import AddressBalance from '../bitcoin/address_balance'
+import QRAddress from '../qr/qr_address'
 
 class Player extends Comp {
   render() {
@@ -13,6 +15,10 @@ class Player extends Comp {
           <PlayerComp />
           {/* <Tracks /> */}
           <TrackList />
+          <div className="addressBalance">
+            <QRAddress />
+            <AddressBalance />
+          </div>
         </PureProvider>
       </div>
     )

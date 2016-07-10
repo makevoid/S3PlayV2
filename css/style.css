@@ -73,12 +73,14 @@ section.track-list > h1 {
 
 .sl5  { margin-left:  5px;  }
 .sl10 { margin-left:  10px; }
+.sl15 { margin-left:  15px; }
 .sl20 { margin-left:  20px; }
 .sl30 { margin-left:  30px; }
 .sl40 { margin-left:  40px; }
 
 .sr5  { margin-right: 5px;  }
 .sr10 { margin-right: 10px; }
+.sr15 { margin-right: 15px; }
 .sr20 { margin-right: 20px; }
 .sr30 { margin-right: 30px; }
 .sr40 { margin-right: 40px; }
@@ -88,6 +90,10 @@ section.track-list > h1 {
 .right {
   float: right;
   text-align: right;
+}
+
+.left {
+  float: left;
 }
 
 .clearRight {
@@ -212,10 +218,6 @@ nav li:hover a {
 }
 
 
-.track.selected {
-  background: #f2f9f5;
-  color: #222;
-}
 
 section.track-list {
   /* ... */
@@ -228,4 +230,33 @@ section.track-list > h1 {
 
 .track-list .track {
   padding: 8px 0;
+  cursor: pointer;
+}
+
+.track-list .track:hover {
+  background: #666;
+}
+
+.track-list .track.selected {
+  background: #f2f9f5;
+  color: #222;
+}
+
+.track-list .track.selected:hover {
+  background: #e2e9e5;
+}
+
+
+/* player */
+
+.player > a {
+  cursor: pointer;
+}
+
+.play_pause {
+  position: relative;
+  left: 4px;
+}
+.play_pause[data-playing="1"] {
+  left: -2px;
 }

@@ -4,7 +4,6 @@ import Comp  from '../comp'
 class AddressBalanceZeroconf extends Comp {
   render () {
     let store = this.getStore()
-    let balance     = store.balance
     let balanceZero = store.balanceZeroconf
     this.balance = balanceZero
     let balanceDifference = balance != balanceZero

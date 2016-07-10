@@ -1,13 +1,13 @@
 import { createStore, compose } from 'Redux'
 
-import mainStore from './main_store'
+import rootReducer from '../reducers/root'
 
 // const store = createStore( mainStore ) // prod store
 
 // dev store
 const devTools = window.devToolsExtension && window.devToolsExtension()
 const store = createStore(
-  mainStore,
+  rootReducer,
   devTools
 )
 // TODO: tweak store creation - load devtools only in development (read JS_ENV / NODE_ENV environment variable)

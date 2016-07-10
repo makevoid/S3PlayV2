@@ -13,7 +13,7 @@ class Track extends Comp {
     const hash  = track.hash
     const name  = track.name
     let classesSel = ""
-    if (track.selected) classesSel = " selected"
+    if (this.props.selected) classesSel = " selected"
     let classes = `track${classesSel}`
     return (
       <div className={classes}>

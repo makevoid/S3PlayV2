@@ -8,20 +8,27 @@ const pReject = (err) => Promise.reject(err)
 
 class Balance {
   static get(address) {
-    return Promise.all([
-      Client.getBalance(address, 0),
-      Client.getBalance(address)
-    ])
-      .catch(pReject)
-      .then((balances) => {
-        let balance = {
-          balanceZeroconf: balances[0],
-          balance:         balances[1],
-        }
-        return balance
-      })
+    return Client.getBalance(address, 0)
       .catch(pReject)
   }
+
+  // balance 0 and 1 confirmations
+  //
+  // static get(address) {
+  //   return Promise.all([
+  //     Client.getBalance(address, 0),
+  //     Client.getBalance(address)
+  //   ])
+  //     .catch(pReject)
+  //     .then((balances) => {
+  //       let balance = {
+  //         balanceZeroconf: balances[0],
+  //         balance:         balances[1],
+  //       }
+  //       return balance
+  //     })
+  //     .catch(pReject)
+  // }
 }
 
 export default Balance

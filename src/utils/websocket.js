@@ -7,13 +7,16 @@ var PENDING_TXST, socket, updateStatus, updateStatusDebounced, wsHost
 updateStatus = function(status) {
   if (!status) return
   if (status == "PONG") return
+
+  // Example usage: 
+  //
   if (status == "antani") {
     console.log(status)
     store.dispatch({ type: 'ANTANI', status: status })
   }
 }
 
-updateStatusDebounced = _.debounce(updateStatus, 200) 
+updateStatusDebounced = _.debounce(updateStatus, 200)
 
 const websocketInit = () => {
 

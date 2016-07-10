@@ -43,7 +43,7 @@ const routes =
   const mainRender = () => {
     render(
       <div className="app main_render">
-        <h1>BitNFC</h1>
+        <h1>S3Play</h1>
         <Router history={hashHistory}>
           {routes}
         </Router>

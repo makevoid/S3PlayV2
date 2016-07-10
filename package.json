@@ -21,6 +21,6 @@
     "rollup-plugin-npm": "^1.4.0",
     "rollup-plugin-replace": "^1.1.0"
   },
-  "repository": "https://github.com/makevoid/BitNFC",
+  "repository": "https://github.com/makevoid/S3Play",
   "license": "Unlicense"
 }

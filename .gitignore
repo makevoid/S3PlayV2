@@ -2,5 +2,5 @@ node_modules/
 npm-debug.log
 .DS_Store
 .sass-cache/
-BitNFC.keystore
+S3Play.keystore
 dist/bundle.js

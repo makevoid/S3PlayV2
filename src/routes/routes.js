@@ -6,3 +6,5 @@ import { Router, Route, IndexRoute, Link, hashHistory } from 'ReactRouter'
 //     <Route path="/lolno" component={Antani} />
 //   </Route>
 // )
+
+// ... TODO: FIXME: find a way to put routes here

@@ -19,18 +19,17 @@ window.storeDebug = store.getState() // FIXME: disable in production
 // Main Components
 
 import {  Route, IndexRoute } from 'ReactRouter'
-import Receive        from './components/receive/receive'
-import Send           from './components/send/send'
-import Transactions   from './components/transactions/transactions'
+import Player        from './components/player/player'
+import Tracks        from './components/tracks/tracks'
 
 
 // Routes
 
 const routes =
   <Route path="/" component={Main}>
-    <Route path="/receive"      component={Receive} />
-    <Route path="/send"         component={Send} />
-    <Route path="/transactions" component={Transactions} />
+    <Route path="/player"      component={Player} />
+    <Route path="/tracks"      component={Tracks} />
+
     <Route path="*"             component={NotFound}/>
   </Route>
 

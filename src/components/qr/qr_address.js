@@ -4,7 +4,7 @@ import Comp     from '../comp'
 import QR       from './qr'
 import Address  from '../bitcoin/address'
 
-export default class QRAddress extends Comp {
+class QRAddress extends Comp {
   constructor(props) {
     super(props)
     this.render = this.render.bind(this)
@@ -31,3 +31,5 @@ export default class QRAddress extends Comp {
     )
   }
 }
+
+export default QRAddress

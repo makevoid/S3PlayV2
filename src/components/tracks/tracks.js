@@ -2,16 +2,18 @@ import React  from 'React'
 import Comp  from '../comp'
 import { Provider } from 'ReactRedux'
 import store        from '../../store/store'
-import TransactionList  from './transaction_list'
+import TrackList    from './track_list'
 
-export default class Transactions extends Comp {
+class Tracks extends Comp {
   render() {
     return (
-      <section className="transactions">
+      <section className="tracks">
         <Provider store={store}>
-          <TransactionList />
+          <TrackList />
         </Provider>
       </section>
     )
   }
 }
+
+export default Tracks

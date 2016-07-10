@@ -1,7 +1,47 @@
 # S3Play (v2!)
-Bitcoin NFC Android Mobile Wallet - JS + React + Redux + Cordova + Bitcore + Blockchain.info API + Cordova NFC plugin #nowebpack
 
-Restarted, based on `makevoid/react-redux-rollup-boilerplate`
+WIP! react component based ui - (wanted to use riotjs with HAML and coffeescript but meh, I have to stick to react ^^)
+
+--- 
+
+Components: TODO
+
+
+    // Player (easy to access interface to play stop and skip)
+
+    // <Player>
+    //   <TrackPrev>
+    //   <PlayPause>
+    //   <TrackNext>
+
+
+    // Track info and play / enqueue
+
+    // Track
+    //
+    // <Track onclick={play}>
+    //   TrackName
+    //   TrackArtist
+    //   TrackDuration
+    //
+    //   TrackEnqueueBtn
+
+
+    // playlist - hash_url based / blockchain hash + ipfs + redis based store
+    //
+    // <Playlist>
+    //   for track in tracks
+    //     <Track>
+
+
+    // settings
+    //
+    // <Config>
+    //   S3Bucket
+
+
+
+Restarted, based on `makevoid/react-redux-rollup-boilerplate` - forked from makevoid/bitnfc#e36ca2f - Jul '16
 
 ### Install
 

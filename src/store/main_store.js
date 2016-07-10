@@ -5,7 +5,9 @@ let init = false
 
 
 const mainStore = (state = defaultState, action) => {
-  //reducer composition (action can be handled by 0,1 or more reducers)
+  // TODO: reducer composition (action can be handled by 0,1 or more reducers)
+  //
+  // at 10+ actions, modularize in multiple reducers without thinking too much about it :D
 
   console.log("ACTION:", action.type)
   switch (action.type) {
@@ -14,13 +16,8 @@ const mainStore = (state = defaultState, action) => {
       Object.assign(state, action.balance)
       return state
 
-    case "GOT_TXS":
-      state.transactions = action.transactions
-      return state
-
-    case "GET_ANTANI":
-      // getAntani()
-      state.antani = action.antani
+    case "GOT_TRACKS":
+      state.tracks = action.tracks
       return state
 
     case "PING":
@@ -39,6 +36,8 @@ const mainStore = (state = defaultState, action) => {
       return state
   }
 }
+
+export default mainStore
 
 //// stricter, legacy version
 //
@@ -62,5 +61,4 @@ const mainStore = (state = defaultState, action) => {
 // }
 
 
-export default mainStore
 // TODO: export antaniStore

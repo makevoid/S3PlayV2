@@ -22,6 +22,7 @@ html, body, .container, .app {
   padding: 0;
   height: 100%;
   overflow: hidden;
+  background: #222;
 }
 
 ul {
@@ -32,15 +33,17 @@ ul {
   text-align: center;
 }
 
-h1 {
+h11,
+section .track-list > h1 {
   font-size: 2.3em;
 }
 
-.app > h1 {
+.app > h1,
+section.track-list > h1 {
   line-height: 50px;
   font-size: 1.5em;
-  background: linear-gradient( 0deg, #eee, #fafafa );
-  border-bottom: 1px solid #AAA;
+  background: linear-gradient( 0deg, #333, #444 );
+  border-bottom: 1px solid #333;
 }
 
 .main > section {
@@ -59,14 +62,28 @@ h1 {
   margin-bottom: 30px;
 }
 
-/* utils */
+/* utils - spacers */
 
-.s10 { height: 10px; }
-.s20 { height: 20px; }
-.s30 { height: 30px; }
-.s40 { height: 40px; }
-.s50 { height: 50px; }
-.s60 { height: 60px; }
+.s10 { height:        10px; }
+.s20 { height:        20px; }
+.s30 { height:        30px; }
+.s40 { height:        40px; }
+.s50 { height:        50px; }
+.s60 { height:        60px; }
+
+.sl5  { margin-left:  5px;  }
+.sl10 { margin-left:  10px; }
+.sl20 { margin-left:  20px; }
+.sl30 { margin-left:  30px; }
+.sl40 { margin-left:  40px; }
+
+.sr5  { margin-right: 5px;  }
+.sr10 { margin-right: 10px; }
+.sr20 { margin-right: 20px; }
+.sr30 { margin-right: 30px; }
+.sr40 { margin-right: 40px; }
+
+/* utils - css utilities */
 
 .right {
   float: right;
@@ -106,22 +123,6 @@ input[type=submit] {
 label {
   position: relative;
   font-size: 1.3em;
-}
-
-/* send */
-
-.hoverInput {
-  position: absolute;
-  right: 3%;
-  font-size: 18px;
-  /*top: 40px;*/
-  bottom: 20px;
-  line-height: 50px;
-  color: #888;
-}
-
-label:hover .hoverInput  {
-  color: #333;
 }
 
 /*  nav  */
@@ -196,4 +197,35 @@ nav li:hover a {
 .btn-danger:hover,
 .button-danger:hover {
   background-color: brown;
+}
+
+/* S3Play */
+
+/* player */
+
+.player {
+  font-size: 2em;
+}
+
+.player .download {
+  float: right;
+}
+
+
+.track.selected {
+  background: #f2f9f5;
+  color: #222;
+}
+
+section.track-list {
+  /* ... */
+}
+
+section.track-list > h1 {
+  margin-top: 30px;
+  /* TODO: differentiate from header slightly (lighter bg?) */
+}
+
+.track-list .track {
+  padding: 8px 0;
 }

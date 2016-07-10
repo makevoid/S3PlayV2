@@ -10,5 +10,6 @@ const store = createStore(
   mainStore,
   devTools
 )
+// TODO: tweak store creation - load devtools only in development (read JS_ENV / NODE_ENV environment variable)
 
 export default store

@@ -1,35 +1,114 @@
 const bitcore = require('bitcore-lib')
+const c = console
 
 const store = localStorage // just a shorter alias for localStorage
 let privateKey = null
 
-// code taken from PracticalBlockchainDevelopmentBook/Chapter02/bitcore_lib_browser
+// KeyManager  -----------(actual implementation / module)
+
+// TODO: change antani as if it would antani really
+//
+// TODO: seriously, modularize this part
+//
 if (store.privateKey) {
-  console.log("Private key present in localStorage")
-  console.log("Private key:")
-  console.log(store.privateKey)
+  c.log("Private key present in localStorage")
+  c.log("Private key:")
+  c.log(store.privateKey)
   privateKey = new bitcore.PrivateKey(store.privateKey)
 } else {
   privateKey = new bitcore.PrivateKey()
   let privateKeyWif = privateKey.toWIF()
   store.privateKey  = privateKeyWif
-  console.log("Private key saved successfully!")
-  console.log("Refresh the page or check your 'Resources > Local Storage' from the developer tools")
+  c.log("Private key saved successfully!")
+  c.log("Refresh the page or check your 'Resources > Local Storage' from the developer tools")
 }
+
+// KeyManager  ----------- (new ES6-ified module, needs testing)
+
+// class KeyManager {
+//   constructor(store = localStorage) {
+//     this.store = store
+//     if (store.privateKey) {
+//       logPrivateKey()
+//       privateKey = new bitcore.PrivateKey(store.privateKey)
+//     } else {
+//       privateKey = new bitcore.PrivateKey()
+//       let privateKeyWif = privateKey.toWIF()
+//       store.privateKey  = privateKeyWif
+//       logKeyGeneration()
+//     }
+//     this.privateKey = privateKey
+//     this.privateKeyWif = store.privateKey
+//     this.address = privateKey.toAddress()
+//     this.addressString = privateKey.toAddress().toString()
+//   }
+//
+//   logPrivateKey() {
+//     c.log("Private key present in localStorage")
+//     c.log("Private key:")
+//     c.log(this.store.privateKey)
+//   }
+//
+//   logKeyGeneration() {
+//     c.log("Private key saved successfully!")
+//     c.log("Refresh the page or check your 'Resources > Local Storage' from the developer tools")
+//   }
+//
+//  }
+//
+// keys = new KeyManager()
+// //
+// // keys.privateKey
+// // keys.privateKeyWif
+// // keys.address
+// // keys.addressString
+// //
+// // et voila'
+
 
 const address = privateKey.toAddress().toString()
 
-let tx1 = "7e10e30c162bcc4b74af47e0c073e764b688a2a6e453dca70e8d711d378eac0b"
-let tx2 = "66ff01106d9cf9e283688c4262a0e6fe5dda8dc464835431744a070030511723"
-let tx3 = "1f7eb8ac37f907c6f5f3932b2e2b0ff55275b971f1c91067c73691b9320c3cd0"
+let tracks = []
+let track
+
+// dev seeds
+track = {
+  name: "Antani 1 - Blue Swings",
+  hash: "123456789",
+}
+tracks.push(track)
+track = {
+  name: "Antani 2 - Yeep yeep",
+  hash: "1234567890",
+}
+tracks.push(track)
+track = {
+  name: "Antani 3 - Gig the Jeep",
+  hash: "12345678901",
+}
+tracks.push(track)
+
+
+// Configs
+//
+//
+const defaultTracks       = tracks
+
+// defaultCurrentTrack - (Track reference/ID via track.hash)
+//
+// const defaultCurrentTrack = "" // definitive
+const defaultCurrentTrack = "1234567890" // seeds
+
+// ---
+
 
 const defaultState = {
   address:         address,
   privateKey:      privateKey,
-  balance:         0,
-  balanceZeroconf: 0,
-  transactions:    [],
-  antani:          "-" // TODO remove debug
+  balance:         0, // NOTE: Balance is at 0 confirmations
+  tracks:          defaultTracks,
+  currentTrack:    defaultCurrentTrack,
+  // tracks:       [],
 }
 
 export default defaultState

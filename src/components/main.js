@@ -1,19 +1,23 @@
-import React, { Component } from 'React'
-import { Link } from 'ReactRouter'
-
+import React from 'React'
 import Comp       from './comp'
-import Receive    from './receive/receive'
-import Nav        from './main/nav'
-import PrivateKey from  './bitcoin/private_key'
 
-export default class Main extends Comp {
+import { Link } from 'ReactRouter'
+import Player   from './player/player'
+import Tracks   from './tracks/tracks'
+// import Nav   from './main/nav'
+
+class Main extends Comp {
   render() {
     return (
       <div className="main">
-        {this.props.children || (<Receive />)}
-        <PrivateKey />
-        <Nav />
+        {this.props.children || (<Player />)}
       </div>
     )
   }
 }
+
+export default Main
+
+// removed elements
+//
+// <Nav />
